@@ -1,0 +1,11 @@
+escritorio1_posto1: escritorio1_switch1 escritorio1_router
+escritorio1_posto2: escritorio1_switch1 escritorio1_router
+escritorio1_visitante_pc1: escritorio1_router
+escritorio1_visitante_pc2: escritorio1_router
+escritorio2_posto1: escritorio2_switch1 escritorio2_router
+escritorio2_posto2: escritorio2_switch1 escritorio2_router
+escritorio2_visitante_pc1: escritorio2_router
+escritorio2_visitante_pc2: escritorio2_router
+sede_admin_contabilista: sede_switch_admin sede_router
+sede_admin_director: sede_switch_admin sede_router
+sede_admin_rh: sede_switch_admin sede_router
