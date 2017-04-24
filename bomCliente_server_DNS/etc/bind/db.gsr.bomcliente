@@ -1,5 +1,6 @@
 $TTL	60000
-@               IN      SOA     bomCliente_server_DNS.bomcliente.gsr.    root.bomCliente_server_DNS.bomcliente.gsr. (	
+@               IN      SOA     bomCliente_server_DNS.bomcliente.gsr.
+root.bomCliente_server_DNS.bomcliente.gsr. (	
 			2006031201 ; serial
                         28 ; refresh
                         14 ; retry
