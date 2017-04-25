@@ -10,6 +10,6 @@ $TTL   60000
 @               IN      NS      ROOT-SERVER.
 ROOT-SERVER.	IN	A	10.0.0.22
 
-gsr.		IN 	NS	bomcliente.gsr.
-bomcliente.gsr.	IN 	A	10.0.0.1
+gsr.		IN 	NS	ispRootDNS.gsr.
+ispRootDNS.gsr.	IN 	A	10.0.0.22
 

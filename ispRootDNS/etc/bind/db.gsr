@@ -1,0 +1,14 @@
+$TTL   60000
+@               IN      SOA     ispRootDNS.gsr.    root.ispRootDNS.gsr. (
+                        2006031201 ; serial
+                        28800 ; refresh
+                        14400 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+
+@               			IN      NS      ispRootDNS.gsr.
+ispRootDNS				IN	A	10.0.0.22
+
+bomcliente				IN 	NS	bomClienteServerDNS.bomcliente.gsr.
+bomClienteServerDNS.bomcliente	IN 	A	10.0.0.1
