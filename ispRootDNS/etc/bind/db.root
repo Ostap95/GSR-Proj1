@@ -11,5 +11,5 @@ $TTL   60000
 ROOT-SERVER.	IN	A	10.0.0.22
 
 gsr.		IN 	NS	ispRootDNS.gsr.
-ispRootDNS.gsr.	IN 	A	10.0.0.22
+ispRootDNS.gsr	IN 	A	10.0.0.22
 

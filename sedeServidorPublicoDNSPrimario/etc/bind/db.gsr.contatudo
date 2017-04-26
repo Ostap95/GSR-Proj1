@@ -40,3 +40,7 @@ escritorio2Posto1		IN	A	192.168.0.10
 escritorio2Posto2		IN	A	192.168.0.11
 escritorio2Posto3		IN	A	192.168.0.12
 escritorio2Posto4		IN	A	192.168.0.13
+
+sedeAdminContabilista		IN	A	10.0.0.78
+sedeAdminDirector		IN	A	10.0.0.79
+sedeAdminRH			IN	A	10.0.0.80

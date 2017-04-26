@@ -11,7 +11,7 @@ $TTL   60000
 ispRootDNS				IN	A	10.0.0.22
 
 bomcliente				IN 	NS	bomClienteServerDNS.bomcliente.gsr.
-bomClienteServerDNS.bomcliente	IN 	A	10.0.0.1
+bomClienteServerDNS.bomcliente		IN 	A	10.0.0.1
 
 contatudo					IN 	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
 sedeServidorPublicoDNSPrimario.contatudo	IN 	A	10.0.0.131
