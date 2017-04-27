@@ -10,3 +10,4 @@ sedeAdminContabilista: sedeSwitchAdmin sedeRouter
 sedeAdminDirector: sedeSwitchAdmin sedeRouter
 sedeAdminRH: sedeSwitchAdmin sedeRouter
 sedeServidorPublicoDNSSecundario: sedeServidorPublicoDNSPrimario sedeServidorPublicoSwitch sedeRouter
+sedeServidorGestor: sedeServidorPrivadoSwitch sedeRouter escritorio1Router escritorio2Router

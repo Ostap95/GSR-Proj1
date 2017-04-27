@@ -17,3 +17,5 @@ ip route add 10.0.0.0/30 via 10.0.0.25
 /etc/init.d/dhcp3-server start
 /etc/init.d/zebra start
 
+/etc/init.d/snmpd start
+
