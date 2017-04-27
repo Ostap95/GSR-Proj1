@@ -10,8 +10,10 @@ ip addr add dev eth4 192.168.0.1/29
 ip link set dev eth4 up
 ip addr add dev eth5 10.0.0.129/28
 ip link set dev eth5 up
+
+route add default gw 10.0.0.25
+ip route add 10.0.0.0/30 via 10.0.0.25
+
 /etc/init.d/dhcp3-server start
 /etc/init.d/zebra start
-route add default gw 10.0.0.25
-ip route add 10.0.0.0/28 via 10.0.0.25
 
