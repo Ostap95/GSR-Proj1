@@ -9,6 +9,8 @@ $TTL	60000
 @				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
 sedeServidorPublicoDNSPrimario	IN	A	10.0.0.131
 
+contatudo.gsr			IN	A	10.0.0.130
+
 escritorio1VisitantePC1		IN	A	10.0.0.162
 escritorio1VisitantePC2		IN	A	10.0.0.163
 escritorio1VisitantePC3		IN	A	10.0.0.164
@@ -44,3 +46,9 @@ escritorio2Posto4		IN	A	192.168.0.13
 sedeAdminContabilista		IN	A	10.0.0.78
 sedeAdminDirector		IN	A	10.0.0.79
 sedeAdminRH			IN	A	10.0.0.80
+
+
+contatudo.gsr			IN	A	10.0.0.130
+www.contatudo.gsr		IN	A	10.0.0.130
+intranet.contatudo.gsr		IN	A	10.0.0.130
+clientes.contatudo.gsr		IN	A	10.0.0.130

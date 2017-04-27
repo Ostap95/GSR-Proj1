@@ -44,3 +44,8 @@ escritorio2Posto4		IN	A	192.168.0.13
 sedeAdminContabilista		IN	A	10.0.0.78
 sedeAdminDirector		IN	A	10.0.0.79
 sedeAdminRH			IN	A	10.0.0.80
+
+contatudo.gsr.			IN	A	10.0.0.130
+www.contatudo.gsr.		IN	A	10.0.0.130
+intranet.contatudo.gsr.		IN	A	10.0.0.130
+clientes.contatudo.gsr.		IN	A	10.0.0.130
