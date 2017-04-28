@@ -8,3 +8,4 @@ adduser --disabled-password --gecos "" conta2
 echo "conta2:passw2" | chpasswd
 
 /etc/init.d/proftpd start
+/etc/init.d/snmpd start
