@@ -1,1 +1,5 @@
 /etc/init.d/networking restart
+
+adduser --disabled-password --gecos "" geral
+usermod -d /home/geral/ geral
+echo geral:pass |chpasswd

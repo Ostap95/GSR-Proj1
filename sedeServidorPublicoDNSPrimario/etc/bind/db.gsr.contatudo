@@ -7,6 +7,8 @@ $TTL	60000
                         0 ; negative cache ttl
                         )
 @				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
+@				IN	MX 5	mail.contatudo.gsr.
+
 sedeServidorPublicoDNSPrimario	IN	A	10.0.0.131
 
 escritorio1VisitantePC1		IN	A	10.0.0.162
@@ -48,3 +50,6 @@ sedeAdminRH			IN	A	10.0.0.80
 www		IN	A	10.0.0.130
 intranet	IN	A	10.0.0.130
 clientes	IN	A	10.0.0.130
+
+mail		IN	A	10.0.0.131
+imap		IN	A	10.0.0.131
