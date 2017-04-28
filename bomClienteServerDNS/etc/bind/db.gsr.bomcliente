@@ -10,4 +10,4 @@ $TTL	60000
 bomClienteServerDNS	IN	A	10.0.0.1
 bomClientePC		IN	A	10.0.0.6
 www			IN	A	10.0.0.1
-bomcliente		IN	A	10.0.0.1
+
