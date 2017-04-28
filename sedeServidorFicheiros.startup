@@ -1,0 +1,10 @@
+ip addr add dev eth0 192.168.0.3/29
+ip link set dev eth0 up
+ip route add default via 192.168.0.1
+adduser --disabled-password --gecos "" conta1
+echo "conta1:passw1" | chpasswd
+
+adduser --disabled-password --gecos "" conta2
+echo "conta2:passw2" | chpasswd
+
+/etc/init.d/proftpd start
