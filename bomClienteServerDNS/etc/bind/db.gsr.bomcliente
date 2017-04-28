@@ -9,5 +9,5 @@ $TTL	60000
 @			IN	NS	bomClienteServerDNS.bomcliente.gsr.
 bomClienteServerDNS	IN	A	10.0.0.1
 bomClientePC		IN	A	10.0.0.6
-bomcliente.gsr		IN	A	10.0.0.1
-www.bomcliente.gsr	IN	A	10.0.0.1
+www			IN	A	10.0.0.1
+bomcliente		IN	A	10.0.0.1
