@@ -7,6 +7,10 @@ $TTL	60000
                         0 ; negative cache ttl
                         )
 @			IN	NS	bomClienteServerDNS.bomcliente.gsr.
+@			IN	MX 5	mail.bomcliente.gsr.
+
+imap			IN	A	10.0.0.1
+mail			IN	A	10.0.0.1
 bomClienteServerDNS	IN	A	10.0.0.1
 bomClientePC		IN	A	10.0.0.6
 www			IN	A	10.0.0.1
