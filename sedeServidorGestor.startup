@@ -2,18 +2,8 @@ ip addr add dev eth0 192.168.0.2/29
 ip link set dev eth0 up
 ip route add default via 192.168.0.1
 
-snmpwalk -c private 10.0.0.177 -v 1
-snmpwalk -c private 10.0.0.26 -v 1
-snmpwalk -c private 10.0.0.129 -v 1
-snmpwalk -c private 192.168.0.1 -v 1
-snmpwalk -c private 10.0.2.70 -v 1
-snmpwalk -c private 10.0.2.66 -v 1
-snmpwalk -c private 10.0.2.65 -v 1
-snmpwalk -c private 192.168.0.17 -v 1
-snmpwalk -c private 10.0.0.161 -v 1
-snmpwalk -c private 10.0.2.69 -v 1
-snmpwalk -c private 192.168.0.9 -v 1
-snmpwalk -c private 10.0.0.145 -v 1
+adduser --disabled-password --gecos "" superuser
+echo "superuser:superuser" | chpasswd
 
 cfgmaker --global "WorkDir: /var/www" private@10.0.0.177 private@10.0.0.26 private@10.0.129 private@192.168.0.1 private@10.0.2.70 private@10.0.2.66 private@10.0.2.65 private@192.168.0.17 private@10.0.0.161 private@10.0.2.69 private@192.168.0.9 private@10.0.0.145 --output /root/mrtg.cfg
 
@@ -22,3 +12,12 @@ env LANG=C /usr/bin/mrtg /root/mrtg.cfg --daemon
 indexmaker --title "Trafico Contatudo" --output /var/www/index.html /root/mrtg.cfg
 
 /etc/init.d/apache2 start
+
+/etc/init.d/ssh start
+
+###############################################
+mkdir /home/superuser/.ssh
+chown superuser:superuser /home/superuser/.ssh
+chmod 700 /home/superuser/.ssh/
+dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
+###############################################

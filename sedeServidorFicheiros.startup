@@ -7,5 +7,17 @@ echo "conta1:passw1" | chpasswd
 adduser --disabled-password --gecos "" conta2
 echo "conta2:passw2" | chpasswd
 
+adduser --disabled-password --gecos "" superuser
+echo "superuser:superuser" | chpasswd
+
+
 /etc/init.d/proftpd start
 /etc/init.d/snmpd start
+/etc/init.d/ssh start
+
+###############################################
+mkdir /home/superuser/.ssh
+chown superuser:superuser /home/superuser/.ssh
+chmod 700 /home/superuser/.ssh/
+dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
+###############################################

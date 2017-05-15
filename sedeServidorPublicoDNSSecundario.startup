@@ -1,8 +1,21 @@
 ip addr add dev eth0 10.0.0.130/28
 ip link set dev eth0 up
 ip route add default via 10.0.0.129
+
+adduser --disabled-password --gecos "" superuser
+echo "superuser:superuser" | chpasswd
+
 /etc/init.d/apache2 start
 /etc/init.d/bind start
 a2ensite default.conf
 /etc/init.d/apache2 restart
 /etc/init.d/snmpd start
+
+/etc/init.d/ssh start
+
+###############################################
+mkdir /home/superuser/.ssh
+chown superuser:superuser /home/superuser/.ssh
+chmod 700 /home/superuser/.ssh/
+dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
+###############################################

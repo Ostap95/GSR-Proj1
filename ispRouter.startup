@@ -6,6 +6,8 @@ ip addr add dev eth2 10.0.0.25/30
 ip link set dev eth2 up
 ip addr add dev eth3 192.168.100.1/30
 ip link set dev eth3 up
+ip addr add dev eth4 192.168.106.1/30
+ip link set dev eth4 up
 iptables -t nat -A POSTROUTING -o eth3 -j MASQUERADE
 ip route add 10.0.0.24/30 via 10.0.0.26
 ip route add 10.0.0.128/26 via 10.0.0.26
