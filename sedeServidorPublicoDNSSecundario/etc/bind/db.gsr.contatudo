@@ -45,6 +45,9 @@ sedeAdminContabilista		IN	A	10.0.0.78
 sedeAdminDirector		IN	A	10.0.0.79
 sedeAdminRH			IN	A	10.0.0.80
 
+sedeServidorPublicoDNSPrimario 	IN	A	10.0.0.131
+sedeServidorPublicoProxy	IN	A	10.0.0.132
+
 www				IN	A	10.0.0.130
 intranet			IN	A	10.0.0.130
 clientes			IN	A	10.0.0.130
