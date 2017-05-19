@@ -19,3 +19,23 @@ ip route add 10.0.0.0/30 via 10.0.0.25
 
 /etc/init.d/snmpd start
 
+###### INITIATE FIREWALL ######
+chmod +x /etc/firewall.sh
+chmod +x /etc/init.d/firewall
+/etc/init.d/firewall start 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
