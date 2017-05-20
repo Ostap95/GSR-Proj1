@@ -1,0 +1,40 @@
+$TTL	60400
+@              IN      	SOA     sedeServidorPublicoDNSPrimario.contatudo.gsr.	root.sedeServidorPublicoDNSPrimario.contatudo.gsr. (	
+			2006031202 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
+131	IN	PTR	sedeServidorPublicoDNSPrimario
+
+162	IN	PTR	escritorio1VisitantePC1
+163	IN	PTR	escritorio1VisitantePC2
+164	IN	PTR	escritorio1VisitantePC3
+165	IN	PTR	escritorio1VisitantePC4
+166	IN	PTR	escritorio1VisitantePC5
+167	IN	PTR	escritorio1VisitantePC6
+168	IN	PTR	escritorio1VisitantePC7
+169	IN	PTR	escritorio1VisitantePC8
+170	IN	PTR	escritorio1VisitantePC9
+171	IN	PTR	escritorio1VisitantePC10
+
+146	IN	PTR	escritorio2VisitantePC1
+147	IN	PTR	escritorio2VisitantePC2
+148	IN	PTR	escritorio2VisitantePC3
+149	IN	PTR	escritorio2VisitantePC4
+150	IN	PTR	escritorio2VisitantePC5
+151	IN	PTR	escritorio2VisitantePC6
+152	IN	PTR	escritorio2VisitantePC7
+153	IN	PTR	escritorio2VisitantePC8
+154	IN	PTR	escritorio2VisitantePC9
+155	IN	PTR	escritorio2VisitantePC10
+
+78	IN	PTR 	sedeAdminContabilista	
+79	IN	PTR	sedeAdminDirector	
+80	IN	PTR 	sedeAdminRH	
+
+
+130 	IN	PTR	sedeServidorPublicoDNSSecundario
+132	IN	PTR	sedeServidorPublicoProxy
