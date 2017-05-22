@@ -15,10 +15,11 @@ chmod go-rw /etc/exim4/exim4.conf
 /etc/init.d/ssh start
 
 ###############################################
-mkdir /home/superuser/.ssh
-chown superuser:superuser /home/superuser/.ssh
-chmod 700 /home/superuser/.ssh/
-dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
+mkdir /home/superuser/.ssh/
+cp /hostlab/shared/keys/authorized_keys /home/superuser/.ssh/
+chown -R superuser:superuser /home/superuser/
+chmod -R 700 /home/superuser/
+#dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
 ###############################################
 
 adduser --disabled-password --gecos "" geral
@@ -44,3 +45,13 @@ echo porto-pc1:pass |chpasswd
 echo porto-pc2:pass |chpasswd
 echo lisboa-pc1:pass |chpasswd
 echo lisboa-pc2:pass |chpasswd
+
+
+ssh-keygen -t rsa
+/etc/init.d/ssh restart
+
+#chmod +x /hostlab/keyExchange.sh
+#cd /hostlab/
+#./keyExchange.sh superuser 192.168.0.2
+#./keyExchange.sh superuser 192.168.0.3
+

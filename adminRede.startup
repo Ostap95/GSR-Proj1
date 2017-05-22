@@ -8,10 +8,15 @@ echo "superuser:superuser" | chpasswd
 ssh-keygen -t rsa
 /etc/init.d/ssh start
 
+rm /hostlab/shared/keys/authorized_keys
+cp /root/.ssh/id_rsa.pub /hostlab/shared/keys/authorized_keys
+
+#chmod +x /hostlab/keyExchange.sh
+#cd /hostlab/
+#./keyExchange.sh superuser 10.0.0.130
+#./keyExchange.sh superuser 10.0.0.131
+#./keyExchange.sh superuser 10.0.0.132
 python /hostlab/sshTunnel.py
-#ssh-copy-id superuser@10.0.0.130
-#ssh-copy-id superuser@10.0.0.131
-#ssh-copy-id superuser@10.0.0.132
 
 
 
