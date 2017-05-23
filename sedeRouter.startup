@@ -19,15 +19,11 @@ ip route add 10.0.0.0/30 via 10.0.0.25
 
 /etc/init.d/snmpd start
 
-
 iptables -t nat -A PREROUTING -s 10.0.0.176/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
 iptables -t nat -A PREROUTING -s 10.0.0.160/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
 iptables -t nat -A PREROUTING -s 10.0.0.144/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
 
-iptables -A FORWARD -s 10.0.0.176/28 -d 10.0.0.132 -p tcp --dport 3128 -j ACCEPT
-iptables -A FORWARD -s 10.0.0.160/28 -d 10.0.0.132 -p tcp --dport 3128 -j ACCEPT
-iptables -A FORWARD -s 10.0.0.144/28 -d 10.0.0.132 -p tcp --dport 3128 -j ACCEPT
-
+iptables -t filter -A FORWARD -s 10.0.0.132 -O eth0 -p tcp --dport 80 -j DENY
 
 ###### INITIATE FIREWALL ######
 chmod +x /etc/firewall.sh
