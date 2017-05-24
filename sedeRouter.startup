@@ -13,6 +13,7 @@ ip link set dev eth5 up
 
 route add default gw 10.0.0.25
 ip route add 10.0.0.0/30 via 10.0.0.25
+ip route add 10.8.0.0/24 via 10.0.0.130
 
 /etc/init.d/dhcp3-server start
 /etc/init.d/zebra start
@@ -23,7 +24,7 @@ iptables -t nat -A PREROUTING -s 10.0.0.176/28 -p tcp --dport 80 -j DNAT --to 10
 iptables -t nat -A PREROUTING -s 10.0.0.160/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
 iptables -t nat -A PREROUTING -s 10.0.0.144/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
 
-iptables -t filter -A FORWARD -s 10.0.0.132 -O eth0 -p tcp --dport 80 -j DENY
+iptables -t filter -A FORWARD -s 10.0.0.132 -o eth0 -p tcp --dport 80 -j REJECT
 
 ###### INITIATE FIREWALL ######
 chmod +x /etc/firewall.sh

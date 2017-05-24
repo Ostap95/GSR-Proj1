@@ -1,6 +1,8 @@
 #!/bin/bash
 IPT="/sbin/iptables"
 INNER_INTERFACES="eth1 eth2 eth3 eth4"
+DNS_SERVER_IP="10.0.0.131"
+DNS_SERVER2_IP="10.0.0.130"
 
 echo "Flushing iptables rules"
 $IPT -F
@@ -9,6 +11,9 @@ echo "Creating Firewall settings"
 
 # Permite ligação ssh aos servidores públicos
 $IPT -A FORWARD -i eth0 -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -d 10.0.0.128/28 -j ACCEPT
+
+# Permite ligação vpn do pc administrador de rede
+$IPT -A FORWARD -s 192.168.106.2 -d 10.0.0.128/26 -m conntrack --ctstate NEW -j ACCEPT
 
 # bloqueia trafego ssh do exterior
 $IPT -A FORWARD -i eth0 -p tcp --dport 22 -m conntrack --ctstate NEW -d 192.168.0.0/29 -j REJECT
@@ -44,11 +49,16 @@ $IPT -A FORWARD -i eth0 -d 10.0.0.132 -m conntrack --ctstate NEW -j REJECT
 
 # Servidor público HTTP só deixa entrar trafego HTTP e HTTPS
 $IPT -A FORWARD -p tcp -m multiport --dports 80,443 -d 10.0.0.132 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp -m multiport --dports 80,443 -d 10.0.0.131 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
 # Servidor DNS primário e email só deixa entrar trafego DNS,IMAP e SMTP
-$IPT -A FORWARD -p udp --dport 53 -d 10.0.0.131 -j ACCEPT
-$IPT -A FORWARD -p tcp --dport 143 -d 10.0.0.131 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p tcp --dport 25 -d 10.0.0.131 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -i eth0 -p udp -d $DNS_SERVER_IP --dport 53 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -i eht0 -p udp -s $DNS_SERVER_IP --sport 53 -m conntrack --ctstate ESTABLISGED -j ACCEPT
+$IPT -A FORWARD -i eth0 -p udp -d $DNS_SERVER2_IP --dport 53 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -i eht0 -p udp -s $DNS_SERVER2_IP --sport 53 -m conntrack --ctstate ESTABLISGED -j ACCEPT
+
+$IPT -A FORWARD -p tcp --dport 143 -d $DNS_SERVER_IP -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp --dport 25 -d $DNS_SERVER_IP -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
 # Servidor DNS secundário só deixa entrar trafego DNS
 $IPT -A FORWARD -p udp --dport 53 -d 10.0.0.130 -j ACCEPT
