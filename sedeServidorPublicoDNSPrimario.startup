@@ -47,11 +47,3 @@ echo lisboa-pc1:pass |chpasswd
 echo lisboa-pc2:pass |chpasswd
 
 
-ssh-keygen -t rsa
-/etc/init.d/ssh restart
-
-#chmod +x /hostlab/keyExchange.sh
-#cd /hostlab/
-#./keyExchange.sh superuser 192.168.0.2
-#./keyExchange.sh superuser 192.168.0.3
-
