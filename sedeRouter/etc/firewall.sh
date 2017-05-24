@@ -49,17 +49,16 @@ $IPT -A FORWARD -i eth0 -d 10.0.0.132 -m conntrack --ctstate NEW -j REJECT
 
 # Servidor público HTTP só deixa entrar trafego HTTP e HTTPS
 $IPT -A FORWARD -p tcp -m multiport --dports 80,443 -d 10.0.0.132 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp -m multiport --dports 80,443 -d 10.0.0.131 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
 # Servidor DNS primário e email só deixa entrar trafego DNS,IMAP e SMTP
-$IPT -A FORWARD -p udp -s 0/0 --sport 1024:65535 -d $DNS_SERVER_IP --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p udp -s $DNS_SERVER_IP --sport 53 -d 0/0 --dport 1024:65635 -m state --state ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p udp -s 0/0 --sport 53 -d $DNS_SERVER_IP --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p udp -s $DNS_SERVER_IP --sport 53 -d 0/0 --dport 53 -m state --state ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p tcp -s $DNS_SERVER2_IP --sport 1024:65535 -d $DNS_SERVER_IP --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p tcp -s $DNS_sERVER_IP --sport 53 -d $DNS_SERVER2_IP --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -i eth0 -p udp -d $DNS_SERVER_IP --dport 53 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -i eht0 -p udp -s $DNS_SERVER_IP --sport 53 -m conntrack --ctstate ESTABLISGED -j ACCEPT
+$IPT -A FORWARD -i eth0 -p udp -d $DNS_SERVER2_IP --dport 53 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -i eht0 -p udp -s $DNS_SERVER2_IP --sport 53 -m conntrack --ctstate ESTABLISGED -j ACCEPT
 
-$IPT -A FORWARD -p tcp --dport 143 -d 10.0.0.131 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p tcp --dport 25 -d 10.0.0.131 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp --dport 143 -d $DNS_SERVER_IP -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp --dport 25 -d $DNS_SERVER_IP -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
 # Servidor DNS secundário só deixa entrar trafego DNS
 $IPT -A FORWARD -p udp --dport 53 -d 10.0.0.130 -j ACCEPT
