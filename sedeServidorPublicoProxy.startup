@@ -6,8 +6,6 @@ adduser --disabled-password --gecos "" superuser
 echo "superuser:superuser" | chpasswd
 
 ###############################################
-mkdir /home/superuser/.ssh/
-cp /hostlab/shared/keys/authorized_keys /home/superuser/.ssh/
 chown -R superuser:superuser /home/superuser/
 chmod -R 700 /home/superuser/
 dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
