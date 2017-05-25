@@ -31,6 +31,7 @@ $IPT -A FORWARD -i eth0 -d 10.0.0.144/28 -m conntrack --ctstate NEW,ESTABLISHED 
 # Máquinas com IP público podem comunicar com exterior
 $IPT -A FORWARD -s 10.0.0.128/26 -o eth0 -j ACCEPT
 $IPT -A FORWARD -s 10.0.2.64/26 -o eth0 -j ACCEPT
+$IPT -A FORWATD -s 10.8.0.0/24 -o eth0 -j ACCEPT
 
 # PCs com IP público não podem fazer pedidos HTTP
 $IPT -A FORWARD -s 10.0.0.128/26 -o eth0 -p tcp --dport 80 -m conntrack --ctstate NEW -j REJECT
@@ -41,23 +42,20 @@ $IPT -A FORWARD -s 10.0.0.128/26 -o eth0 -m conntrack --ctstate NEW -j REJECT
 $IPT -A FORWARD -s 10.0.2.64/26 -o eth0 -m conntrack --ctstate NEW -j REJECT
 
 # Servidor DNS primário e email só deixa entrar trafego DNS,IMAP e SMTP
-iptables -A FORWARD -p udp -s 0/0 --sport 1024:65535 -d $DNS_SERVER_IP --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -p udp -s $DNS_SERVER_IP --sport 53 -d 0/0 --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT
-iptables -A FORWARD -p udp -s 0/0 --sport 53 -d $DNS_SERVER_IP --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -p udp -s $DNS_SERVER_IP --sport 53 -d 0/0 --dport 53 -m state --state ESTABLISHED -j ACCEPT
-
-#$IPT -A FORWARD -i eth0 -p udp --dport 53 -d $DNS_SERVER_IP -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-#$IPT -A FORWARD -i eth0 -p udp --sport 53 -s $DNS_SERVER_IP -m conntrack --ctstate ESTABLISHED -j ACCEPT
-#$IPT -A FORWARD -i eth0 -d $DNS_SERVER2_IP --dport 53 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-#$IPT -A FORWARD -i eth0 -p udp -s $DNS_SERVER2_IP --sport 53 -m conntrack --ctstate ESTABLISGED -j ACCEPT
+$IPT -A FORWARD -p udp -s 0/0 --sport 1024:65535 -d $DNS_SERVER_IP --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p udp -s $DNS_SERVER_IP --sport 53 -d 0/0 --dport 1024:65535 -m state --state ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p udp -s 0/0 --sport 53 -d $DNS_SERVER_IP --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p udp -s $DNS_SERVER_IP --sport 53 -d 0/0 --dport 53 -m state --state ESTABLISHED -j ACCEPT
 
 $IPT -A FORWARD -p tcp --dport 143 -d $DNS_SERVER_IP -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 $IPT -A FORWARD -p tcp --dport 25 -d $DNS_SERVER_IP -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 
 # Servidor público HTTP deixa entrar trafego HTTP e HTTPS
 $IPT -A FORWARD -p tcp -m tcp --dport 80 -d 10.0.0.132 -m state --state NEW,ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p tcp --dport 80 -d 10.0.0.131/28 -m state --state NEW,ESTABLISHED -j ACCEPT
-$IPT -A FORWARD -p tcp --dport 80 -s 10.0.0.131/28 -o eth0 -m state --state NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp -m multiport --dports 80,443 -d 10.0.0.131/28 -m state --state NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp -m multiport --dports 80,443 -s 10.0.0.131/28 -o eth0 -m state --state NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp -m multiport --dports 80,443 -d 10.0.0.130/28 -m state --state NEW,ESTABLISHED -j ACCEPT
+$IPT -A FORWARD -p tcp -m multiport --dports 80,443 -s 10.0.0.130/28 -o eth0 -m state --state NEW,ESTABLISHED -j ACCEPT
 
 # Ninguem de fora pode iniciar ligação para nenhum dos PCS com IP publico (excepto visitantes)
 $IPT -A FORWARD -i eth0 -d 10.0.0.128/26 -m conntrack --ctstate NEW -j REJECT
@@ -66,8 +64,16 @@ $IPT -A FORWARD -i eth0 -d 10.0.2.64/26 -m conntrack --ctstate NEW -j REJECT
 # Servidor DNS secundário só deixa entrar trafego DNS
 $IPT -A FORWARD -p udp --dport 53 -d 10.0.0.130 -j ACCEPT
 
-# FALTA PROXY SÓ DEIXAR ENTRAR SERVIÇO DELE
+# Proxy Web
+$IPT -t nat -A PREROUTING -s 10.0.0.176/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
+$IPT -t nat -A PREROUTING -s 10.0.0.160/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
+$IPT -t nat -A PREROUTING -s 10.0.0.144/28 -p tcp --dport 80 -j DNAT --to 10.0.0.132:3128
 
+$IPT -t filter -A FORWARD -s !10.0.0.132 -o eth0 -p tcp --dport 80 -j REJECT
+
+
+
+$IPT -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
 
 echo "Adding anti-spoofing rules"
 for i in $INNER_INTERFACES
