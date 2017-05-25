@@ -7,18 +7,15 @@ echo "superuser:superuser" | chpasswd
 
 dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
 
-ssh-keygen -t rsa
+chown -R superuser:superuser /root/
+chmod -R 700 /root/
+
 /etc/init.d/ssh start
 
 rm /hostlab/shared/keys/authorized_keys
 cp /root/.ssh/id_rsa.pub /hostlab/shared/keys/authorized_keys
 
-#chmod +x /hostlab/keyExchange.sh
-#cd /hostlab/
-#./keyExchange.sh superuser 10.0.0.130
-#./keyExchange.sh superuser 10.0.0.131
-#./keyExchange.sh superuser 10.0.0.132
-python /hostlab/sshTunnel.py
+#python /hostlab/sshTunnel.py
 
 
 

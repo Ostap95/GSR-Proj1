@@ -12,28 +12,10 @@ a2ensite default.conf
 /etc/init.d/snmpd start
 
 ###############################################
-mkdir /home/superuser/.ssh/
-cp /hostlab/shared/keys/authorized_keys /home/superuser/.ssh/
 chown -R superuser:superuser /home/superuser/
 chmod -R 700 /home/superuser/
 dpkg -i /hostlab/shared/sudo_1.6.9p17-3_i386.deb
 ###############################################
 /etc/init.d/ssh start
-
-cd /usr/share/doc/openvpn/examples/easy-rsa/2.0/
-source ./vars
-./clean-all
-./build-ca
-./build-key-server server
-./build-key adminPC
-./build-dh
-
-cd /usr/share/doc/openvpn/examples/easy-rsa/2.0/
-cp scpToAdmin.sh /usr/share/doc/openvpn/examples/easy-rsa/2.0/keys/scpToAdmin.sh
-cd /usr/share/doc/openvpn/examples/easy-rsa/2.0/keys/
-chmod +x scpToAdmin.sh
-./scpToAdmin.sh
-rm adminPC.key adminPC.crt
-cp {ca.crt,dh1024.pem,server.key,server.crt} /etc/openvpn/
 
 /etc/init.d/openvpn start
