@@ -7,9 +7,16 @@ echo "superuser:superuser" | chpasswd
 
 /etc/init.d/apache2 start
 /etc/init.d/bind start
-a2ensite default.conf
-/etc/init.d/apache2 restart
 /etc/init.d/snmpd start
+
+a2ensite default.conf
+a2enmod ssl
+a2enmod headers
+a2ensite clientesContatudo.conf
+a2enconf ssl-params
+apache2ctl configtest
+/etc/init.d/apache2 restart
+
 
 ###############################################
 mkdir /home/superuser/.ssh/
