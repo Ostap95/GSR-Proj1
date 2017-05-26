@@ -7,8 +7,11 @@ $TTL	60400
                         0 ; negative cache ttl
                         )
 @				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
+$ORIGIN 128-191.0.0.10.in-addr.arpa.
+
 131	IN	PTR	sedeServidorPublicoDNSPrimario
 
+161	IN	PTR	escritorio1Router
 162	IN	PTR	escritorio1VisitantePC1
 163	IN	PTR	escritorio1VisitantePC2
 164	IN	PTR	escritorio1VisitantePC3
@@ -20,6 +23,7 @@ $TTL	60400
 170	IN	PTR	escritorio1VisitantePC9
 171	IN	PTR	escritorio1VisitantePC10
 
+145	IN	PTR	escritorio2Router
 146	IN	PTR	escritorio2VisitantePC1
 147	IN	PTR	escritorio2VisitantePC2
 148	IN	PTR	escritorio2VisitantePC3
@@ -31,10 +35,11 @@ $TTL	60400
 154	IN	PTR	escritorio2VisitantePC9
 155	IN	PTR	escritorio2VisitantePC10
 
-78	IN	PTR 	sedeAdminContabilista	
-79	IN	PTR	sedeAdminDirector	
-80	IN	PTR 	sedeAdminRH	
+177	IN	PTR	sedeRouter
+178	IN	PTR 	sedeAdminContabilista	
+179	IN	PTR	sedeAdminDirector	
+180	IN	PTR 	sedeAdminRH	
 
-
+129	IN	PTR	sedeRouter
 130 	IN	PTR	sedeServidorPublicoDNSSecundario
 132	IN	PTR	sedeServidorPublicoProxy

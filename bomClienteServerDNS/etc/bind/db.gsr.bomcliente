@@ -9,6 +9,8 @@ $TTL	60000
 @			IN	NS	bomClienteServerDNS.bomcliente.gsr.
 @			IN	MX 5	mail.bomcliente.gsr.
 
+bomClienteRouter	IN	A	10.0.0.2
+
 imap			IN	A	10.0.0.1
 mail			IN	A	10.0.0.1
 bomClienteServerDNS	IN	A	10.0.0.1

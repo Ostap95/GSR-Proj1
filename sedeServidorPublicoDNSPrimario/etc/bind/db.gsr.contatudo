@@ -54,6 +54,13 @@ sedeServidorPublicoProxy	IN	A	10.0.0.132
 sedeServidorFicheiros		IN	A	192.168.0.3
 sedeServidorGestao		IN	A	192.168.0.2
 
+escritorio1Router		IN	A	10.0.2.65
+sedeRouter			IN	A	10.0.2.66
+escritorio2Router		IN	A	10.0.2.69
+sedeRouter			IN	A	10.0.2.70
+
+
+
 www		IN	A	10.0.0.130
 intranet	IN	A	10.0.0.130
 clientes	IN	A	10.0.0.130

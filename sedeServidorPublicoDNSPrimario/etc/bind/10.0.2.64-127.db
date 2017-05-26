@@ -1,0 +1,16 @@
+$TTL	60400
+@              IN      	SOA     sedeServidorPublicoDNSPrimario.contatudo.gsr.	root.sedeServidorPublicoDNSPrimario.contatudo.gsr. (	
+			2006031202 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
+$ORIGIN 64-127.2.0.10.in-addr.arpa.
+
+65	IN	PTR	escritorio1Router
+66	IN	PTR	sedeRouter
+
+67	IN	PTR	escritorio2Router
+70	IN	PTR	sedeRouter

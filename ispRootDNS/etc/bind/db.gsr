@@ -10,6 +10,8 @@ $TTL   60000
 @               			IN      NS      ispRootDNS.gsr.
 ispRootDNS				IN	A	10.0.0.22
 
+ispRouter				IN	A	10.0.0.18
+
 bomcliente				IN 	NS	bomClienteServerDNS.bomcliente.gsr.
 bomClienteServerDNS.bomcliente		IN 	A	10.0.0.1
 

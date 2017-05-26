@@ -1,0 +1,15 @@
+$TTL 1D
+@               IN      SOA     ispRootDNS.gsr.    root.ispRootDNS.gsr. (
+                                2016032400      ; Serial
+                                3H              ; Refresh 3 hours
+                                1H              ; Retry 1 hour
+                                3W              ; Expire 3 weeks
+                                1D              ; Minimum 1 day
+                                )
+;
+                        IN      NS      ispRootDNS.gsr.
+$ORIGIN 0.168.192.in-addr.arpa.
+$ORIGIN 0-23.0.168.192.in-addr.arpa.
+0-23                   	NS      sedeServidorPublicoDNSPrimario.contatudo.gsr
+0-23                    NS      sedeServidorPublicoDNSSecundario.contatudo.gsr
+$GENERATE 0-23 $.0.168.192.in-addr.arpa. CNAME $.0-23.0.168.192.in-addr.arpa.
