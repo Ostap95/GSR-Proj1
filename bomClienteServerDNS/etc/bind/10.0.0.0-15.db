@@ -1,0 +1,15 @@
+$TTL	60400
+@              IN      	SOA     bomClienteServerDNS.bomcliente.gsr.	root.bomClienteServerDNS.bomcliente.gsr. (	
+			2006031202 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@			IN	NS	bomClienteServerDNS.bomcliente.gsr.
+$ORIGIN 0-15.0.0.10.in-addr.arpa.
+
+1	IN	PTR	bomClienteServerDNS
+2	IN	PTR	bomClienteRouter
+5	IN	PTR	bomClienteRouter
+6	IN	PTR	bomClientePC

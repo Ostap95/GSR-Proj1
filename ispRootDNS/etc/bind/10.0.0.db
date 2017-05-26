@@ -9,7 +9,13 @@ $TTL 1D
 ;
                         IN      NS      ispRootDNS.gsr.
 $ORIGIN 0.0.10.in-addr.arpa.
+
+
 $ORIGIN 128-191.0.0.10.in-addr.arpa.
 128-191                    NS      sedeServidorPublicoDNSPrimario.contatudo.gsr
 128-191                    NS      sedeServidorPublicoDNSSecundario.contatudo.gsr
 $GENERATE 128-191 $.0.0.10.in-addr.arpa. CNAME $.128-191.0.0.10.in-addr.arpa.
+
+$ORIGIN 0-15.0.0.10.in-addr.arpa.
+0-15			   NS	   bomClienteServerDNS.bomcliente.gsr.
+$GENERATE 0-15 $.0.0.10.in-addr.arpa. CNAME $.0-15.0.0.10.in-addr.arpa.
