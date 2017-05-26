@@ -9,8 +9,8 @@ $TTL	60400
 @				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
 $ORIGIN 64-127.2.0.10.in-addr.arpa.
 
-65	IN	PTR	escritorio1Router
-66	IN	PTR	sedeRouter
+65	IN	PTR	escritorio1Router.contatudo.gsr
+66	IN	PTR	sedeRouter.contatudo.gsr
 
-67	IN	PTR	escritorio2Router
-70	IN	PTR	sedeRouter
+67	IN	PTR	escritorio2Router.contatudo.gsr
+70	IN	PTR	sedeRouter.contatudo.gsr

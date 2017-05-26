@@ -9,18 +9,18 @@ $TTL	60400
 @				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
 $ORIGIN 0-23.0.168.192.in-addr.arpa.
 
-3		IN	PTR	sedeServidorFicheiros
-2		IN	PTR	sedeServidorGestao
-1 		IN	PTR	sedeRouter
+3		IN	PTR	sedeServidorFicheiros.contatudo.gsr
+2		IN	PTR	sedeServidorGestao.contatudo.gsr
+1 		IN	PTR	sedeRouter.contatudo.gsr
 
-9		IN	PTR	escritorio2Router
-10		IN	PTR	escritorio2Posto1
-11		IN	PTR	escritorio2Posto2
-12		IN	PTR	escritorio2Posto3
-13		IN	PTR	escritorio2Posto4
+9		IN	PTR	escritorio2Router.contatudo.gsr
+10		IN	PTR	escritorio2Posto1.contatudo.gsr
+11		IN	PTR	escritorio2Posto2.contatudo.gsr
+12		IN	PTR	escritorio2Posto3.contatudo.gsr
+13		IN	PTR	escritorio2Posto4.contatudo.gsr
 
-17		IN	PTR	escritorio1Router
-18		IN	PTR	escritorio1Posto1
-19		IN	PTR	escritorio1Posto2
-20		IN	PTR	escritorio1Posto3
-21		IN	PTR	escritorio1Posto4
+17		IN	PTR	escritorio1Router.contatudo.gsr
+18		IN	PTR	escritorio1Posto1.contatudo.gsr
+19		IN	PTR	escritorio1Posto2.contatudo.gsr
+20		IN	PTR	escritorio1Posto3.contatudo.gsr
+21		IN	PTR	escritorio1Posto4.contatudo.gsr

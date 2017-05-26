@@ -9,37 +9,37 @@ $TTL	60400
 @				IN	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
 $ORIGIN 128-191.0.0.10.in-addr.arpa.
 
-131	IN	PTR	sedeServidorPublicoDNSPrimario
+131	IN	PTR	sedeServidorPublicoDNSPrimario.contatudo.gsr
 
-161	IN	PTR	escritorio1Router
-162	IN	PTR	escritorio1VisitantePC1
-163	IN	PTR	escritorio1VisitantePC2
-164	IN	PTR	escritorio1VisitantePC3
-165	IN	PTR	escritorio1VisitantePC4
-166	IN	PTR	escritorio1VisitantePC5
-167	IN	PTR	escritorio1VisitantePC6
-168	IN	PTR	escritorio1VisitantePC7
-169	IN	PTR	escritorio1VisitantePC8
-170	IN	PTR	escritorio1VisitantePC9
-171	IN	PTR	escritorio1VisitantePC10
+161	IN	PTR	escritorio1Router.contatudo.gsr
+162	IN	PTR	escritorio1VisitantePC1.contatudo.gsr
+163	IN	PTR	escritorio1VisitantePC2.contatudo.gsr
+164	IN	PTR	escritorio1VisitantePC3.contatudo.gsr
+165	IN	PTR	escritorio1VisitantePC4.contatudo.gsr
+166	IN	PTR	escritorio1VisitantePC5.contatudo.gsr
+167	IN	PTR	escritorio1VisitantePC6.contatudo.gsr
+168	IN	PTR	escritorio1VisitantePC7.contatudo.gsr
+169	IN	PTR	escritorio1VisitantePC8.contatudo.gsr
+170	IN	PTR	escritorio1VisitantePC9.contatudo.gsr
+171	IN	PTR	escritorio1VisitantePC10.contatudo.gsr
 
-145	IN	PTR	escritorio2Router
-146	IN	PTR	escritorio2VisitantePC1
-147	IN	PTR	escritorio2VisitantePC2
-148	IN	PTR	escritorio2VisitantePC3
-149	IN	PTR	escritorio2VisitantePC4
-150	IN	PTR	escritorio2VisitantePC5
-151	IN	PTR	escritorio2VisitantePC6
-152	IN	PTR	escritorio2VisitantePC7
-153	IN	PTR	escritorio2VisitantePC8
-154	IN	PTR	escritorio2VisitantePC9
-155	IN	PTR	escritorio2VisitantePC10
+145	IN	PTR	escritorio2Router.contatudo.gsr
+146	IN	PTR	escritorio2VisitantePC1.contatudo.gsr
+147	IN	PTR	escritorio2VisitantePC2.contatudo.gsr
+148	IN	PTR	escritorio2VisitantePC3.contatudo.gsr
+149	IN	PTR	escritorio2VisitantePC4.contatudo.gsr
+150	IN	PTR	escritorio2VisitantePC5.contatudo.gsr
+151	IN	PTR	escritorio2VisitantePC6.contatudo.gsr
+152	IN	PTR	escritorio2VisitantePC7.contatudo.gsr
+153	IN	PTR	escritorio2VisitantePC8.contatudo.gsr
+154	IN	PTR	escritorio2VisitantePC9.contatudo.gsr
+155	IN	PTR	escritorio2VisitantePC10.contatudo.gsr
 
-177	IN	PTR	sedeRouter
-178	IN	PTR 	sedeAdminContabilista	
-179	IN	PTR	sedeAdminDirector	
-180	IN	PTR 	sedeAdminRH	
+177	IN	PTR	sedeRouter.contatudo.gsr
+178	IN	PTR 	sedeAdminContabilista.contatudo.gsr
+179	IN	PTR	sedeAdminDirector.contatudo.gsr
+180	IN	PTR 	sedeAdminRH.contatudo.gsr
 
-129	IN	PTR	sedeRouter
-130 	IN	PTR	sedeServidorPublicoDNSSecundario
-132	IN	PTR	sedeServidorPublicoProxy
+129	IN	PTR	sedeRouter.contatudo.gsr
+130 	IN	PTR	sedeServidorPublicoDNSSecundario.contatudo.gsr
+132	IN	PTR	sedeServidorPublicoProxy.contatudo.gsr

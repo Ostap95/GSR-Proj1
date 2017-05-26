@@ -9,7 +9,7 @@ $TTL	60400
 @			IN	NS	bomClienteServerDNS.bomcliente.gsr.
 $ORIGIN 0-15.0.0.10.in-addr.arpa.
 
-1	IN	PTR	bomClienteServerDNS
-2	IN	PTR	bomClienteRouter
-5	IN	PTR	bomClienteRouter
-6	IN	PTR	bomClientePC
+1	IN	PTR	bomClienteServerDNS.bomcliente.gsr
+2	IN	PTR	bomClienteRouter.bomcliente.gsr
+5	IN	PTR	bomClienteRouter.bomcliente.gsr
+6	IN	PTR	bomClientePC.bomcliente.gsr

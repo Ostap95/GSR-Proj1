@@ -11,9 +11,12 @@ $TTL   60000
 ispRootDNS				IN	A	10.0.0.22
 
 ispRouter				IN	A	10.0.0.18
+adminRede				IN	A	192.168.106.2
 
 bomcliente				IN 	NS	bomClienteServerDNS.bomcliente.gsr.
 bomClienteServerDNS.bomcliente		IN 	A	10.0.0.1
 
 contatudo					IN 	NS	sedeServidorPublicoDNSPrimario.contatudo.gsr.
 sedeServidorPublicoDNSPrimario.contatudo	IN 	A	10.0.0.131
+
+

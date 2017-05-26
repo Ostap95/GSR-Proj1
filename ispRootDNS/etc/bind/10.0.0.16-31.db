@@ -1,0 +1,19 @@
+$TTL	60400
+@               IN      SOA     ispRootDNS.gsr.    root.ispRootDNS.gsr. (	
+			2006031202 ; serial
+                        28 ; refresh
+                        14 ; retry
+                        3600000 ; expire
+                        0 ; negative cache ttl
+                        )
+@				IN	NS	ispRootDNS.gsr.
+$ORIGIN 16-31.0.0.10.in-addr.arpa.
+
+17 	IN	PTR	bomClienteRouter.bomcliente.gsr
+18	IN	PTR	ispRouter.gsr
+
+22	IN	PTR	ispRootDNS.gsr
+23	IN	PTR	ispRouter.gsr
+
+25	IN	PTR	ispRouter.gsr
+26	IN	PTR	sedeRouter.contatudo.gsr
