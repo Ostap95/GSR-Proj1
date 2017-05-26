@@ -15,8 +15,6 @@ chmod -R 700 /root/
 rm /hostlab/shared/keys/authorized_keys
 cp /root/.ssh/id_rsa.pub /hostlab/shared/keys/authorized_keys
 
+dpkg -i /hostlab/shared/openresolv_3.5.2-1_all.deb
+
 #python /hostlab/sshTunnel.py
-
-
-
-
